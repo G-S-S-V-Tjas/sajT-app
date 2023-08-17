@@ -1,0 +1,8 @@
+---
+iruoy:
+  tjas:
+    dart_2_17_client:
+    - "./lib/src/generated/nl_iruoy_tjas_v0_client.dart"
+    dart_2_17_json:
+    - "./lib/src/generated/nl_iruoy_common_v0_json.dart"
+    - "./lib/src/generated/nl_iruoy_tjas_v0_json.dart"

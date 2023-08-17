@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json.schemastore.org/apibuilder.json",
+
+  "name": "tjas",
+  "description": "Wordpress backend which serves https://tjas.nl",
+
+  "imports": [
+    { "uri": "https://app.apibuilder.io/iruoy/common/latest/service.json" }
+  ],
+
+  "enums": {
+    "post_status": {
+      "description": "The publication status of a post",
+      "values": [
+        { "name": "publish" },
+        { "name": "future" },
+        { "name": "draft" },
+        { "name": "pending" },
+        { "name": "private" },
+        { "name": "trash" },
+        { "name": "auto-draft" },
+        { "name": "inherit" }
+      ]
+    }
+  },
+
+  "models": {
+    "post": {
+      "description": "A generic post of Wordpress",
+      "fields": [
+        { "name": "id", "type": "integer" },
+        { "name": "date", "type": "date-iso8601" },
+        { "name": "status", "type": "post_status" },
+        { "name": "link", "type": "string" },
+        { "name": "title", "type": "post_title" },
+        { "name": "excerpt", "type": "post_excerpt" }
+      ]
+    },
+
+    "post_title": {
+      "description": "The title of a Wordpress post",
+      "fields": [{ "name": "rendered", "type": "string" }]
+    },
+
+    "post_excerpt": {
+      "description": "The excerpt of a Wordpress post",
+      "fields": [{ "name": "rendered", "type": "string" }]
+    }
+  },
+
+  "resources": {
+    "post": {
+      "path": "",
+      "operations": [
+        {
+          "method": "GET",
+          "path": "/tribe_events",
+          "description": "Events which all members of Tjas can join",
+          "responses": {
+            "200": {
+              "type": "[post]"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

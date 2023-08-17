@@ -1,0 +1,9 @@
+code:
+  iruoy:
+    tjas:
+      version: latest
+      generators:
+        - generator: dart_2_17_json
+          target: ./lib/src/generated/
+        - generator: dart_2_17_client
+          target: ./lib/src/generated/
